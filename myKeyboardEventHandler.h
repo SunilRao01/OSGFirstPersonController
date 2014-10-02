@@ -4,14 +4,18 @@
 #include <osg/MatrixTransform>
 #include <osgViewer/Viewer>
 #include <osgGA/GUIEventHandler>
+#include <osg/Timer>
 #include <iostream>
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 class myKeyboardEventHandler : public osgGA::GUIEventHandler
 {
 public:
-   myKeyboardEventHandler(osg::MatrixTransform *node) : _model(node)
+   myKeyboardEventHandler(osgViewer::Viewer *inputViewer) : _viewer(inputViewer)
    {
-
+        mainTimer.setStartTick();
    }
 
    virtual bool handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &);
@@ -21,7 +25,8 @@ public:
         v.visit(*this);
     };
 protected:
-   osg::ref_ptr<osg::MatrixTransform> _model;
+   osgViewer::Viewer *_viewer;
+   osg::Timer mainTimer;
 };
 
 #endif // MYKEYBOARDEVENTHANDLER_H
