@@ -10,3 +10,6 @@ install: camManipLib
 
 exCube: examples/cube.cpp
 	g++ examples/cube.cpp -lmyKeyboardEventHandler -losg -losgGA -losgViewer -o cube
+
+clean: 
+	rm -f myKeyboardEventHandler.so cube
