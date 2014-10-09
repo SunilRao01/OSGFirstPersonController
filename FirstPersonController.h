@@ -1,7 +1,8 @@
-#ifndef MYKEYBOARDEVENTHANDLER_H
-#define MYKEYBOARDEVENTHANDLER_H
+#ifndef FIRSTPERSONCONTROLLER_H
+#define FIRSTPERSONCONTROLLER_H
 
 #include <osg/MatrixTransform>
+#include <osgGA/FirstPersonManipulator>
 #include <osgViewer/Viewer>
 #include <osgGA/GUIEventHandler>
 #include <osg/Timer>
@@ -10,12 +11,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-class myKeyboardEventHandler : public osgGA::GUIEventHandler
+class FirstPersonController : public osgGA::GUIEventHandler
 {
 public:
-   myKeyboardEventHandler(osgViewer::Viewer *inputViewer) : _viewer(inputViewer)
+   FirstPersonController(osgViewer::Viewer *inputViewer) : _viewer(inputViewer)
    {
         mainTimer.setStartTick();
+        //_viewer->setCameraManipulator(new FirstPersonPerspective);
+        _viewer->setCameraManipulator(new osgGA::FirstPersonManipulator);
    }
 
    virtual bool handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &);
@@ -29,4 +32,4 @@ protected:
    osg::Timer mainTimer;
 };
 
-#endif // MYKEYBOARDEVENTHANDLER_H
+#endif // FIRSTPERSONCONTROLLER_H

@@ -1,12 +1,12 @@
-#include "myKeyboardEventHandler.h"
+#include "FirstPersonController.h"
 
 const float moveSpeed = 0.02;
-const float timeInterval = 0.02;
+const float inputTimeInterval = 0.02;
 
 osg::Vec3d tempMov;
-double maxTick = timeInterval;
+double maxTick = inputTimeInterval;
 
-bool myKeyboardEventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &aa)
+bool FirstPersonController::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &aa)
 {
 
    if (!_viewer)
@@ -87,7 +87,7 @@ bool myKeyboardEventHandler::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUI
    if (mainTimer.time_s() >= maxTick)
    {
        _viewer->getCameraManipulator()->setByMatrix(matrix);
-       maxTick += timeInterval;
+       maxTick += inputTimeInterval;
    }
 
 

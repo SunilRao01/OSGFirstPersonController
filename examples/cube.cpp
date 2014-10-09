@@ -6,7 +6,7 @@
 #include <osgGA/FirstPersonManipulator>
 #include <osg/MatrixTransform>
 #include <osg/Matrixd>
-#include <myKeyboardEventHandler.h>
+#include <FirstPersonController.h>
 
 // Variables
 float tstep;
@@ -30,16 +30,13 @@ int main()
     root->addChild(myshapegeode);
 
     osgViewer::Viewer viewer;
+	viewer.setSceneData(root.get());
 
-    // KEYBOARD INPUT
-    osg::ref_ptr<myKeyboardEventHandler> controller = new myKeyboardEventHandler(&viewer);
+    // First Person Controller
+    osg::ref_ptr<FirstPersonController> controller = new FirstPersonController(&viewer);
 
-    viewer.setSceneData(root.get());
-
-    // Connect viewer with keyboard handler
+    // Connect viewer with controller
     viewer.addEventHandler(controller.get());
-
-    viewer.setCameraManipulator(new osgGA::FirstPersonManipulator);
 
     viewer.setUpViewInWindow(200, 200, 640, 480);
     viewer.realize();
