@@ -9,19 +9,3 @@ viewer as an event handler.
 
 NOTE: You currently have to hold the mouse down to utilize the first person camera. This is a bug
 that is planned on being fixed shortly.
-
-Sample code has been provided below:
-
-
-#include "FirstPersonController.h"
-
-...
-
-int main()
-{
-	...
-
-	osg::ref_ptr<FirstPersonController> controller = new FirstPersonController(&viewer);
-	viewer.addEventHandler(controller.get());
-}
-
