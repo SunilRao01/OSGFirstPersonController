@@ -8,8 +8,13 @@ install: camManipLib
 	cp ./FirstPersonController.h /usr/include
 	ldconfig /usr/lib/libFirstPersonController.so
 
+uninstall:
+	rm /usr/lib/libFirstPersonController.so
+	rm /usr/include/FirstPersonController.h
+	ldconfig
+
 exCube: examples/cube.cpp
 	g++ examples/cube.cpp -lFirstPersonController -losg -losgGA -losgViewer -o cube
 
 clean: 
-	rm -f FirstPersonController.so cube
+	rm -f libFirstPersonController.so cube
