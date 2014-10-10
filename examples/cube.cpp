@@ -30,15 +30,16 @@ int main()
     root->addChild(myshapegeode);
 
     osgViewer::Viewer viewer;
-	viewer.setSceneData(root.get());
+    viewer.setSceneData(root.get());
 
-    // First Person Controller
+    // KEYBOARD INPUT
     osg::ref_ptr<FirstPersonController> controller = new FirstPersonController(&viewer);
 
-    // Connect viewer with controller
+
+    // Connect viewer with keyboard handler
     viewer.addEventHandler(controller.get());
 
-    viewer.setUpViewInWindow(200, 200, 640, 480);
+    //viewer.setUpViewInWindow(200, 200, 640, 480);
     viewer.realize();
     while (!viewer.done())
     {
