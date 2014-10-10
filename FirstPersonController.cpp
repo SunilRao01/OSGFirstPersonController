@@ -90,6 +90,6 @@ bool FirstPersonController::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIA
        maxTick += inputTimeInterval;
    }
 
-
+	return false;
 }
 
