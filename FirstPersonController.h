@@ -21,6 +21,11 @@ public:
         //_viewer->setCameraManipulator(new osgGA::FirstPersonManipulator);
    }
 
+   bool handleMouseWheel( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& us )
+   {
+       return true;
+   };
+
    virtual bool handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &);
 
    virtual void accept(osgGA::GUIEventHandlerVisitor &v)
