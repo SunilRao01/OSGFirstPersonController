@@ -35,9 +35,8 @@ int main()
     // KEYBOARD INPUT
     osg::ref_ptr<FirstPersonController> controller = new FirstPersonController(&viewer);
 
+    viewer.setCameraManipulator(controller);
 
-    // Connect viewer with keyboard handler
-    viewer.addEventHandler(controller.get());
 
     //viewer.setUpViewInWindow(200, 200, 640, 480);
     viewer.realize();

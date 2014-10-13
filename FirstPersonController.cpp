@@ -9,6 +9,9 @@ double maxTick = inputTimeInterval;
 bool FirstPersonController::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &aa)
 {
 
+    // Still use first person manipulator for camera movements (Inherited class function)
+    FirstPersonManipulator::handle(ea, aa);
+
    if (!_viewer)
    {
        return false;
@@ -90,6 +93,6 @@ bool FirstPersonController::handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIA
        maxTick += inputTimeInterval;
    }
 
-	return false;
+    return false;
 }
 

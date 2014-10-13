@@ -11,14 +11,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-class FirstPersonController : public osgGA::GUIEventHandler
+class FirstPersonController : public osgGA::FirstPersonManipulator
 {
 public:
    FirstPersonController(osgViewer::Viewer *inputViewer) : _viewer(inputViewer)
    {
         mainTimer.setStartTick();
         //_viewer->setCameraManipulator(new FirstPersonPerspective);
-        _viewer->setCameraManipulator(new osgGA::FirstPersonManipulator);
+        //_viewer->setCameraManipulator(new osgGA::FirstPersonManipulator);
    }
 
    virtual bool handle(const osgGA::GUIEventAdapter &ea, osgGA::GUIActionAdapter &);
