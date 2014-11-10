@@ -140,7 +140,7 @@ osg::Camera *FirstPersonController::createHUD()
 
     {
         osg::BoundingBox bb;
-        for (int i = 0; i < geode->getNumDrawables(); ++i)
+        for (unsigned int i = 0; i < geode->getNumDrawables(); ++i)
         {
             bb.expandBy(geode->getDrawable(i)->getBound());
         }
