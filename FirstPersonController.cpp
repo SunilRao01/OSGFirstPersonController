@@ -121,22 +121,23 @@ bool FirstPersonController::performMovement()
         return false;
     }
 
-    return performMovementLeftMouseButton( eventTimeDelta, dx, dy);
+
+	//performMouseDeltaMovement(dx, dy);
 
     // call appropriate methods
     unsigned int buttonMask = _ga_t1->getButtonMask();
-    if( buttonMask == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON )
+    if( buttonMask == osgGA::GUIEventAdapter::RIGHT_MOUSE_BUTTON )
     {
         return performMovementLeftMouseButton( eventTimeDelta, dx, dy );
     }
     else if( buttonMask == osgGA::GUIEventAdapter::MIDDLE_MOUSE_BUTTON ||
             buttonMask == (osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON | osgGA::GUIEventAdapter::RIGHT_MOUSE_BUTTON) )
     {
-        return performMovementMiddleMouseButton( eventTimeDelta, dx, dy );
+        //return performMovementMiddleMouseButton( eventTimeDelta, dx, dy );
     }
     else if( buttonMask == osgGA::GUIEventAdapter::RIGHT_MOUSE_BUTTON )
     {
-        return performMovementRightMouseButton( eventTimeDelta, dx, dy );
+        //return performMovementRightMouseButton( eventTimeDelta, dx, dy );
     }
 
     return false;
